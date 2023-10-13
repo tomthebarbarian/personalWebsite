@@ -27,7 +27,7 @@ const twilio = {
 //creates new user
 const createUser = (name, email, password) => {
   password = bcrypt.hashSync(password, 10);
-  user = { name, email, password };
+  let user = { name, email, password };
   return user;
 };
 
@@ -40,7 +40,7 @@ const findUserByEmail = (email) => {
     .toArray(function (err, user) {
       if (err) throw err;
       return (user);
-    })
+    });
 };
 
 //get timestamp and return friendly format
@@ -86,7 +86,7 @@ module.exports = (router, dbo) => {
       .find({ email: email })
       .toArray(function (err, user) {
         if (err) throw err;
-        console.log('-xxx----x--reg---')
+        console.log('-xxx----x--reg---');
         console.log({ user, name, email, password });
 
         //check if user exist
@@ -102,7 +102,7 @@ module.exports = (router, dbo) => {
 
         bcrypt.hash(password, 10, function (err, hash) {
           // Store hash in your password DB.
-          console.log('bcrypt register')
+          console.log('bcrypt register');
           user = { name, email, hash };
 
           dbConn.collection("users").insertOne(user);
@@ -110,8 +110,8 @@ module.exports = (router, dbo) => {
 
           //create session cookie
           req.session.user_id = user._id;
-          console.log("from the register route", user.id)
-          console.log("session id from register route", req.session.user_id)
+          console.log("from the register route", user.id);
+          console.log("session id from register route", req.session.user_id);
           res
             .status(200)
             .json({ code: 200, exist: false, user });
@@ -150,17 +150,17 @@ module.exports = (router, dbo) => {
       .toArray((err, user) => {
         if (err) throw err;
         if (user[0]) {
-          res.json({ code: 200, msg: 'success', user })
+          res.json({ code: 200, msg: 'success', user });
           // res.redirect("/sites");
-          return
+          return;
         }
         //initialize template variable,
         //if we are here we are not logged in
         const templateVars = varInit(false, null, null, null);
         // res.render("login", templateVars);
 
-        console.log('------------------session-------')
-        res.json({ code: 401, msg: 'user not found', user: null })
+        console.log('------------------session-------');
+        res.json({ code: 401, msg: 'user not found', user: null });
 
       });
   });
@@ -185,8 +185,8 @@ module.exports = (router, dbo) => {
         if (err) throw err;
         user = user[0];
         if (!user) {
-          res.json({ code: 401, msg: 'user not found', user: null })
-          return
+          res.json({ code: 401, msg: 'user not found', user: null });
+          return;
         }
 
         bcrypt.compare(password, user.hash, function (err, auth) {
@@ -199,7 +199,7 @@ module.exports = (router, dbo) => {
             const vars = varInit(false, 410, null, null);
             // res.render("login", vars);
             res
-              .json({ code: 403, msg: 'invalid password', user: null })
+              .json({ code: 403, msg: 'invalid password', user: null });
             return;
           }
 
@@ -209,7 +209,7 @@ module.exports = (router, dbo) => {
           const vars = varInit(true, 200, user, null);
           // res.render('main', vars);
           res
-            .json({ code: 200, msg: 'success', user })
+            .json({ code: 200, msg: 'success', user });
           return;
         });
       });
@@ -222,7 +222,7 @@ module.exports = (router, dbo) => {
     req.session = null;
     const state = varInit(false, 200, null, null);
     // res.render("login", vars);
-    res.json({ code: 200, msg: 'logged out', user: null })
+    res.json({ code: 200, msg: 'logged out', user: null });
 
   });
 
