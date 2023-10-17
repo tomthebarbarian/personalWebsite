@@ -1,20 +1,20 @@
 //sites collection
 module.exports = [
   {
-    owner: '61a6e8c00682f300f11b8ea7',
-    name: "aj",
-    coord: [45.42316, -75.706787],
-    province: "ON",
-    usage_kWh: 12500,
-    size_kW: 10.5,
+    "owner": '61a6e8c00682f300f11b8ea7',
+    "name": "aj",
+    "coord": [45.42316, -75.706787],
+    "province": "ON",
+    "usage_kWh": 12500,
+    "size_kW": 10.5,
   },
   {
-    owner: '61a6e8c00682f300f11b8a55',
-    name: "hamza",
-    coord: [50.0551, -103.8867],
-    province: "ON",
-    usage_kWh: 7500,
-    size_kW: 8.5,
+    "owner": '61a6e8c00682f300f11b8a55',
+    "name": "hamza",
+    "coord": [50.0551, -103.8867],
+    "province": "ON",
+    "usage_kWh": 7500,
+    "size_kW": 8.5,
 
   },
   {

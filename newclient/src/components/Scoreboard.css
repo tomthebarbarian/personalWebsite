@@ -1,0 +1,18 @@
+/* table, th, td {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+td {
+  border: none;
+} */
+
+.filter {
+  justify-content: center;
+}
+
+.comparebar{
+  height: 50%;
+  width: 90%;
+}
