@@ -38,7 +38,7 @@ const users = {
     sites: [1]
   },
 
-}
+};
 
 
 const sites = {
@@ -78,7 +78,7 @@ const sites = {
     consumption_kWh: 7.5,
     system_size_kW: 8.5,
   },
-}
+};
 
 const dataModel = {
 
@@ -105,6 +105,6 @@ const dataModel = {
     NL: 13.8
   }
 
-}
+};
 
-module.exports = { users, sites, dataModel }
+module.exports = { users, sites, dataModel };

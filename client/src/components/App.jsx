@@ -40,8 +40,6 @@ export default function App() {
     apiLogout,
     apiRegister,
     fnSetDay,
-    bookInterview,
-    deleteInterview,
     resetdB,
     fetchDays,
     fetchAppts,

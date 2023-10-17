@@ -1,16 +1,16 @@
 require('dotenv').config();
 const chalk = require('chalk');
 
-const PORT = Number(process.env.DB_PORT)
-const DB_NAME = process.env.DB_NAME
+const PORT = Number(process.env.DB_PORT);
+const DB_NAME = process.env.DB_NAME;
 
 
 const { MongoClient } = require("mongodb");
 // const conUrl = process.env.ATLAS_URI;
-const conUrl = `mongodb://localhost:${PORT}/`
+const conUrl = `mongodb://localhost:${PORT}/`;
 
 console.log(chalk.yellow(`----[connecting to db]---`));
-console.log({ PORT, DB_NAME, conUrl })
+console.log({ PORT, DB_NAME, conUrl });
 
 const client = new MongoClient(conUrl, {
   useNewUrlParser: true,
