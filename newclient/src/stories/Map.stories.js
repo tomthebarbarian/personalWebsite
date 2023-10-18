@@ -1,5 +1,4 @@
-import { StoryObj, Meta } from '@storybook/react';
-import {Map} from '../components/Map.jsx'
+import {Map} from '../components/Map'
 import React, { useState } from 'react';
 //👇 This default export determines where your story goes in the story list
 const meta = {

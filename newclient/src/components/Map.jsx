@@ -8,7 +8,7 @@ import axios from 'axios'
 
 
 
-const Map = (props) => {
+export const Map = (props) => {
 
   const { state, setState } = props
 

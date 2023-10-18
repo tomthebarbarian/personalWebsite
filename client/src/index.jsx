@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 //what's up with ./
 import './index.scss';
 import App from './components/App.jsx'
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(

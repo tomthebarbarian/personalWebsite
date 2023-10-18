@@ -8,13 +8,14 @@ import '../custom.scss';
 import axios from 'axios';
 import { constants } from '../../helpers/constants'
 
-import Geocode from 'react-geocode';
+import * as Geocode from 'react-geocode';
 const DECIMALS = 6
-Geocode.setApiKey('AIzaSyCcKsKVOs-uzI8Ri0xtVmP-Mi9NNsFkj_c');
+Geocode.setKey('AIzaSyCcKsKVOs-uzI8Ri0xtVmP-Mi9NNsFkj_c');
 Geocode.setLanguage('en');
 Geocode.setRegion('ca');
 
-export default function AddSite(props) {
+
+export const AddSite = function(props) {
   const { onClick, apiLogout, state, setState } = props;
 
   const [user, setUser] = useState({});
@@ -317,3 +318,5 @@ export default function AddSite(props) {
     </main>
   );
 }
+
+export default AddSite;

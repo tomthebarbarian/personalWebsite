@@ -1,13 +1,12 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import { constants } from '../../helpers/constants'
-
-import className from 'classnames';
 import '../Scoreboard.css';
 import { Button, Modal, Form, Row, Col, Container } from 'react-bootstrap';
-import Geocode from 'react-geocode';
+import * as Geocode from 'react-geocode' ;
+
 const DECIMALS = 6;
-Geocode.setApiKey('AIzaSyCcKsKVOs-uzI8Ri0xtVmP-Mi9NNsFkj_c');
+Geocode.setKey('AIzaSyCcKsKVOs-uzI8Ri0xtVmP-Mi9NNsFkj_c');
 Geocode.setLanguage('en');
 Geocode.setRegion('ca');
 

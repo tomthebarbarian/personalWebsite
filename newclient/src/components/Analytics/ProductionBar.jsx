@@ -21,7 +21,7 @@ const chartConfig = {
 // Here's the start of barchart compare
 // Should generate a barchart for all avg kw production for that number of 
 // months and year
-const ProductionBar = (props) => {
+export const ProductionBar = (props) => {
   const { dataSets, axisLable } = props
   console.log('===-=-==-=-=-=--=-=-=-=-=-==')
 

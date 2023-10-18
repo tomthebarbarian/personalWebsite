@@ -8,7 +8,7 @@ const Contents = (props) => {
   const { register } = props
   console.log(props)
   return (
-    <div class="text">
+    <div className="text">
       <h2> {props.title} </h2>
       <h3> {props.subtitle} </h3>
       <p> {props.content} </p>
@@ -40,7 +40,7 @@ const Footer = (props) => {
   );
 };
 
-export default function Landing(props) {
+export const Landing = function (props) {
   const [activeClass, setActiveClass] = useState(false);
   const { register } = props
   return (
@@ -63,3 +63,5 @@ export default function Landing(props) {
     </div>
   );
 };
+
+export default Landing;

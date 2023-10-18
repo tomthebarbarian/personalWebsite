@@ -1,0 +1,205 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape LegName (PrefName) LstName} \\ \vspace{1pt}
+    \small 226-600-4912 $|$ \href{mailto:tom.zhang989@gmail.com}{\underline{email@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/webgeotz/}{\underline{linkedin.com/in/custurl/}} $|$
+    \href{https://github.com/tomthebarbarian}{\underline{github.com/myuser}}
+\end{center}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading    
+      {Acompany}{Richmond Hill, ON}
+      {Application Developer}{Jan. 2022 - Feb. 2023}
+      \resumeItemListStart
+        \resumeItem{Serviced 50,000 user requests per month by creating application middlelayer in \textbf{Java} and \textbf{Spring} framework} and ensured functionality in client environment using \textbf{Spring RESTful APIs}
+        \resumeItem{Eliminated agent lookup time by presenting relevant information to help desk agents through dynamic screen popups using \textbf{Javascript} and \textbf{React}}
+        \resumeItem{Enabled agents to handle 5 times more interactions simultaneously by deploying a web chat widget using  \textbf{Google Dialogflow}, and \textbf{Javascript}}
+        \resumeItem{Delivered  \textbf{NLU}  voice reporting service for 300 requests a month, 7 million dollars in value, with \textbf{Javascript}}
+        \resumeItem{Contributed code automatically using \textbf{Javascript, Jenkins, Terraform, Docker and Azure} devops pipeline}
+        \resumeItem{\textbf{Trained} and \textbf{onboarded} 3 of the 5 team members on the middle layer team}
+        \resumeItem{Configured and deployed Cloud Customer services for 7 offices with 20-150 employees using Genesys \textbf{AWS} SaaS}
+      \resumeItemListEnd
+      
+    \resumeSubHeadingListEnd
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Market Breadth} $|$ \emph{Google App Engine, Flask, Pandas, Python, Pyplot}}{\textit{June 2023}}
+          \resumeItemListStart
+            \resumeItem{Graphed Stock market Breadth using: Pandas, Python, pyPlot }
+            \resumeItem{Set up data collection using yfinance}
+            \resumeItem{Provided additional statistical analysis and visualization through Pandas and Numpy}
+            \resumeItem{Presents various stock market analytics using Pyplot charts on Flask pages hosted on Google App Engine}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{SolarPwr} $|$ \emph{React, Node, Postgresql, MongoDB}}{\textit{Dec 2021}}
+          \resumeItemListStart
+            \resumeItem{Mapped solar energy generation potential across Canada with Node Application using: Leaflet.js, React.js, Express.js and Mongodb }
+            \resumeItem{Preserved user registration and generation sites using Mongodb}
+            \resumeItem{Provided additional statistical analysis and visualization through Bootstrap}
+            \resumeItem{Presents the cost savings opportunity of installing solar panels through Chart.JS}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Waterloo}{Waterloo, ON}
+      {Bachelor of Environmental Studies in Geomatics, Minor in Computer Science}{Aug. 2015 -- May 2020}
+    \resumeSubheading
+      {Lighthouse Labs}{Toronto, ON}
+      {Full Stack development Bootcamp}{Sept - Dec 2021}
+    \resumeProjectHeading
+      {\textbf{Google Cloud Architect Certification}}{\textit{2022}}
+    \resumeProjectHeading
+      {\textbf{Azure Fundamentals Certification}}{\textit{2022}}
+  \resumeSubHeadingListEnd
+
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C\#, .NET, Java, Python, SQL (Postgres, Oracle, Mysql), JavaScript, HTML/CSS, R} \\
+     \textbf{Frameworks}{: React, Spring, Node.js, Flask} \\
+     \textbf{Developer Tools}{: Git/Github, Docker, Terraform, Google Cloud Platform, Azure, AWS} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, Junit, Chai, Mocha}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

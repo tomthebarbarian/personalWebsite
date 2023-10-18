@@ -1,5 +1,5 @@
-import { StoryObj, Meta } from '@storybook/react';
-import {ProductionBar} from '../components/Analytics/ProductionBar.jsx'
+
+import {ProductionBar} from '../components/Analytics/ProductionBar'
 import React, { useState } from 'react';
 //👇 This default export determines where your story goes in the story list
 const meta = {
