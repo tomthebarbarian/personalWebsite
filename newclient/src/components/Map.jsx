@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet"
 // Need to find leaflet.css and import into webpack
 // import "node_modules/leaflet/dist/leaflet.css"
@@ -10,7 +10,7 @@ import axios from 'axios'
 
 const Map = (props) => {
 
-  const {state, setState} = props
+  const { state, setState } = props
 
   const [map, setMap] = useState({})
 
@@ -52,13 +52,13 @@ const Map = (props) => {
   });
 
   // Pv Overlay
-  const pvBounds = [[40,-140], [60, -52]]
-  const pvOver = L.imageOverlay (
+  const pvBounds = [[40, -140], [60, -52]]
+  const pvOver = L.imageOverlay(
     './bluestored.png',
     pvBounds,
-    {opacity: 0.8}
-    )
-  
+    { opacity: 0.8 }
+  )
+
 
   useEffect(() => {
     const popup = L.popup()
@@ -75,10 +75,10 @@ const Map = (props) => {
       const pvUrl = `/pv_data`
 
       let tooltip = ''
-      
+
       Promise.all([
         axios.get(tempUrl),
-        axios.post(pvUrl, {...ll})
+        axios.post(pvUrl, { ...ll })
       ])
         .then(res => {
           const data = {
@@ -90,18 +90,18 @@ const Map = (props) => {
         })
         .then(data => {
           // Use response data to update the popup's content
-         console.log('------------------',data)
-         let i =0
-         for (const key in data.pvout ) {
-         
-          const keys = ['ELE' ,'PVOUT_csi', 'GHI', 'DNI' ,'GTI_opta' ,'OPTA' ,'TEMP']
-          const units = ['m', 'kWh/kWp','W/m²', 'W/m²','W/m²','°','°C']
-            if (keys.includes(key)){  
-                tooltip = tooltip + `<br> <b> ${key} </b>: ${data.pvout[key].toFixed(2)} ${units[i]}` 
-                i++
+          console.log('------------------', data)
+          let i = 0
+          for (const key in data.pvout) {
+
+            const keys = ['ELE', 'PVOUT_csi', 'GHI', 'DNI', 'GTI_opta', 'OPTA', 'TEMP']
+            const units = ['m', 'kWh/kWp', 'W/m²', 'W/m²', 'W/m²', '°', '°C']
+            if (keys.includes(key)) {
+              tooltip = tooltip + `<br> <b> ${key} </b>: ${data.pvout[key].toFixed(2)} ${units[i]}`
+              i++
             }
-            
-         }
+
+          }
           popup
             .setContent(
               `<b> [Lat, Long] </b>: [${data.weather.coord.lat} ${data.weather.coord.lon}] 
@@ -129,9 +129,9 @@ const Map = (props) => {
       if (state.sites && state.sites.length > 0) {
         for (let elem of state.sites) {
           installSites.push(
-            L.marker([elem.coord[0],elem.coord[1]],
+            L.marker([elem.coord[0], elem.coord[1]],
               { icon: myIcon }).bindPopup(elem.name)
-            )
+          )
         }
       }
       let allSites = L.layerGroup(installSites)
@@ -144,14 +144,14 @@ const Map = (props) => {
       }
       // Map overLay layers for control
       const overLay = {
-        'PV Output' : pvOver,
-        'Solar Sites' : allSites,
+        'PV Output': pvOver,
+        'Solar Sites': allSites,
       }
 
-      L.control.layers(baseLay, overLay,{position: 'topleft'}).addTo(map)
+      L.control.layers(baseLay, overLay, { position: 'topleft' }).addTo(map)
     }
 
-  }, [map, myIcon, state,pvOver])
+  }, [map, myIcon, state, pvOver])
 
   return (
     <>
@@ -159,6 +159,7 @@ const Map = (props) => {
         Map should be here
       </div>
     </>
-  )}
+  )
+}
 
-  export default Map
+export default Map

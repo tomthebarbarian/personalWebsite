@@ -1,29 +1,29 @@
 
 import './Landing.scss'
 
-import {useState} from 'react'
+import { useState } from 'react'
 
 
 const Contents = (props) => {
-  const {register} = props
+  const { register } = props
   console.log(props)
   return (
     <div class="text">
       <h2> {props.title} </h2>
       <h3> {props.subtitle} </h3>
       <p> {props.content} </p>
-      <button 
-       class="btn btn-outline-warning btn-lg"
-       onClick = {()=>register()}
-       type="button"
-       >Register</button>
+      <button
+        className="btn btn-outline-warning btn-lg"
+        onClick={() => register()}
+        type="button"
+      >Register</button>
     </div>
   );
 };
 
 const Image = () => {
   return <img src="./landing_2.png" />;
-  
+
 };
 
 
@@ -38,17 +38,17 @@ const Footer = (props) => {
       <p>{props.content} </p>{" "}
     </div>
   );
-}; 
+};
 
 export default function Landing(props) {
   const [activeClass, setActiveClass] = useState(false);
-  const {register} = props
+  const { register } = props
   return (
-    <div className = "layout">
+    <div className="layout">
       <section className={activeClass ? "active containerx" : "containerx"}>
-     
+
         <Image />
-      
+
         <Overlay />
         <Contents
           title="Solar Flares"

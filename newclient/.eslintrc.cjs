@@ -28,10 +28,10 @@ module.exports = {
         "error",
         "unix"
       ],
-      "semi": [
-        "error",
-        "always"
-      ],
+      // "semi": [
+      //   "error",
+      //   "always"
+      // ],
       "no-var": "error",
       "no-console": "off",
       "no-unused-vars": "warn",

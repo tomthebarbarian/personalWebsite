@@ -2,8 +2,8 @@ import React from "react";
 import './ProductionStats.scss'
 
 const ProductionStats = (props) => {
-  const {province, name, usage_kWh, size_kW} = props.site
-  return(
+  const { province, name, usage_kWh, size_kW } = props.site
+  return (
     <ul className="productionstats col-md-6">
       <h2>Production Stats</h2>
       <li>

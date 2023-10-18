@@ -2,9 +2,9 @@ import React from "react";
 import './ProductionEstimates.scss'
 
 const ProductionEstimates = (props) => {
-  const {size , prod, usage, net, utilization, netCost} = props
+  const { size, prod, usage, net, utilization, netCost } = props
 
-  return(
+  return (
     <ul className='col-md-6 text-center'>
       <h2>Production Estimates</h2>
       <li>
@@ -13,7 +13,7 @@ const ProductionEstimates = (props) => {
       <li>
         {`Annual Consumption (kWh): ${usage}`}
       </li>
-       
+
       <li>
         {`Annual production (kWh): ${prod}`}
       </li>
@@ -21,7 +21,7 @@ const ProductionEstimates = (props) => {
         {`NET (kWh): ${net}`}
       </li>
       <li>
-        {`Utilization (%): ${Math.round(utilization * 10000)/100}`}
+        {`Utilization (%): ${Math.round(utilization * 10000) / 100}`}
       </li>
       <li>
         {`Energy Costs ($): ${netCost}`}

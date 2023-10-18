@@ -4,15 +4,13 @@ import Map from './Map';
 import { useState, useHooks, useEffect } from 'react';
 
 import {
-  Container, Navbar, Row, Col, FormControl, Form,
-  Button, Nav, NavDropdown, ButtonGroup, Dropdown,
-  DropdownButton, MenuItem
+  Container, Navbar, Row, Col,
+  Button, ButtonGroup, Dropdown,
+  DropdownButton,
 } from 'react-bootstrap';
 // import { Container, Navbar, Button,  Nav, Row, Col, Modal, } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import SideBar from './Sidebar';
-import AddForm from './AddForm';
 import Scoreboard from './Scoreboard';
 import Analytics from './Analytics/Analytics';
 import useAppData from './useAppData.js';
@@ -24,7 +22,7 @@ import classNames from 'classnames';
 import EditSite from './Edit/EditSite.jsx';
 import AddSite from './Add/AddSite';
 import Landing from './Landing/Landing';
-import { divIcon } from 'leaflet-css';
+// import { divIcon } from 'leaflet-css';
 
 const SHOW = 0;
 const EDIT = 1;
@@ -37,14 +35,14 @@ export default function App() {
   const {
     state,
     setState,
-    loading,
+    // loading,
     apiLogin,
     apiLogout,
     apiRegister,
-    fnSetDay,
-    resetdB,
-    fetchDays,
-    fetchAppts,
+    // fnSetDay,
+    // resetdB,
+    // fetchDays,
+    // fetchAppts,
   } = useAppData();
 
   //add condiontal styling
@@ -100,7 +98,7 @@ export default function App() {
     console.log('-----------------[Appjsx user logout]---------------', nav);
     setNav(prev => ({ ...{}, showMap: true }));
     return apiLogout();
-  }
+  };
 
   //add condiontal styling
   //quick hack to resolve  more than one map issue

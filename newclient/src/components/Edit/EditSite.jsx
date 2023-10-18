@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
-import {constants} from '../../helpers/constants'
+import { constants } from '../../helpers/constants'
 
 import className from 'classnames';
 import '../Scoreboard.css';
@@ -22,14 +22,14 @@ export default function EdiSite(props) {
   const [show, setShow] = useState(false);
   const [validated, setValidated] = useState(false);
 
-  
+
   const editHandle = (targetSite) => {
-    const site = {...targetSite}
+    const site = { ...targetSite }
     site.lat = site.coord[0]
     site.long = site.coord[1]
     delete site.coord
-    setCurrentSite(prev => ({...{}, ...site}));
-  
+    setCurrentSite(prev => ({ ...{}, ...site }));
+
     setShow(EDIT);
   };
 
@@ -44,8 +44,8 @@ export default function EdiSite(props) {
       .catch((error) => {
         console.log(error);
       });
-      setShow(prev => prev = false) 
-      setState(prev => ({...prev, count: prev.count--})) 
+    setShow(prev => prev = false)
+    setState(prev => ({ ...prev, count: prev.count-- }))
   };
 
   const delHandle = (targetSite) => {
@@ -53,10 +53,10 @@ export default function EdiSite(props) {
     console.log('delete site', targetSite);
     setShow(DELETE);
 
-    
+
   };
 
-  const handleClose = () => setShow(prev=> prev = false);
+  const handleClose = () => setShow(prev => prev = false);
 
   useEffect(() => {
     console.log(state);
@@ -78,7 +78,7 @@ export default function EdiSite(props) {
     delete updatedSite.lat;
     delete updatedSite.long;
     updatedSite.coord = coord;
-    
+
     const newSites = [...state.sites, updatedSite];
 
     setState((prev) => ({ ...prev, sites: newSites }));
@@ -95,26 +95,26 @@ export default function EdiSite(props) {
 
 
   };
-  
+
   const changeHandler = (e) => {
     setCurrentSite((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  function getLocation() {
+  const getLocation = function () {
     console.log('button clicked');
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     }
   }
 
-  
-  function showPosition(position) {
-  
+
+  const showPosition = function (position) {
+
     const lat = position.coords.latitude
-    const long =  position.coords.longitude
-      setCurrentSite( prev => ({...prev, lat, long}))
-     
-    }
+    const long = position.coords.longitude
+    setCurrentSite(prev => ({ ...prev, lat, long }))
+
+  }
 
   const fetchLatLong = () => {
     console.log('-----------------------')
@@ -124,17 +124,17 @@ export default function EdiSite(props) {
         console.log(res.results[0]);
         const lat = res.results[0].geometry.location.lat.toFixed(DECIMALS);
         const long = res.results[0].geometry.location.lng.toFixed(DECIMALS);
-        const addrComp = res.results[0].address_components     
+        const addrComp = res.results[0].address_components
         let province = ''
         for (const e of addrComp) {
           if (constants.prov.includes(e.short_name)) {
-            province =  e.short_name
+            province = e.short_name
             break
           }
         }
-        console.log({province})
-        setCurrentSite( prev => ({...prev, lat, long, province}))
-        setState(prev => ({...prev, markers:{ [currentSite._id] : {lat: lat, lng: long}}}))
+        console.log({ province })
+        setCurrentSite(prev => ({ ...prev, lat, long, province }))
+        setState(prev => ({ ...prev, markers: { [currentSite._id]: { lat: lat, lng: long } } }))
         console.log(currentSite)
       })
       .catch((error) => {
@@ -158,215 +158,215 @@ export default function EdiSite(props) {
     }
   };
 
-  
-  const { name, lat, long, usage_kWh, size_kW, address, province} = currentSite;
-  
+
+  const { name, lat, long, usage_kWh, size_kW, address, province } = currentSite;
+
   return (
     <>
-    <div className = 'half container'>
-       <h1> My Sites</h1>         
-      <table class='table'>
-        <thead>
-          <tr>
-            <th scope='col'>#</th>
-            <th scope='col'>Name <br/></th>
-            <th scope='col'>System Size <br/> [kW]</th>
-            <th scope='col'>Production<br/>  [kWh]</th>
-            <th scope='col'>Consumption<br/> [kWh]</th>
-            <th scope='col'>NET<br/>  [kWh]</th>
-            <th scope='col'>Annual Energy<br/> Costs [$]</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userSites.map((s) => {
-            
-            return (
-              <>
-                <tr>
-                  <th scope='row'>{}</th>
-                  <td>{s.name}</td>
-                  <td>{s.size}</td>
-                  <td>{s.prod}</td>
-                  <td>{s.usage}</td>
-                  <td>{s.nett}</td>
-                  <td>{s.cost}</td> 
-                  <td>
-                    <Button
-                      variant='outline-primary'
-                      onClick={() => editHandle(s)}
-                    >
-                      Edit
-                    </Button>
-                  </td>
-                  <td><Button variant='outline-danger'
+      <div className='half container'>
+        <h1> My Sites</h1>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th scope='col'>#</th>
+              <th scope='col'>Name <br /></th>
+              <th scope='col'>System Size <br /> [kW]</th>
+              <th scope='col'>Production<br />  [kWh]</th>
+              <th scope='col'>Consumption<br /> [kWh]</th>
+              <th scope='col'>NET<br />  [kWh]</th>
+              <th scope='col'>Annual Energy<br /> Costs [$]</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userSites.map((s) => {
+
+              return (
+                <>
+                  <tr>
+                    <th scope='row'>{ }</th>
+                    <td>{s.name}</td>
+                    <td>{s.size}</td>
+                    <td>{s.prod}</td>
+                    <td>{s.usage}</td>
+                    <td>{s.nett}</td>
+                    <td>{s.cost}</td>
+                    <td>
+                      <Button
+                        variant='outline-primary'
+                        onClick={() => editHandle(s)}
+                      >
+                        Edit
+                      </Button>
+                    </td>
+                    <td><Button variant='outline-danger'
                       onClick={() => delHandle(s)}
                     >
                       Delete
                     </Button>
-                  </td>
-                </tr>
-              </>
-            );
-          })}
-        </tbody>
-      </table>
+                    </td>
+                  </tr>
+                </>
+              );
+            })}
+          </tbody>
+        </table>
 
-      <Modal className='modalx' show={show===EDIT} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Site</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form
-            noValidate
-            validated={validated}
-            onSubmit={handleSubmit}
-            className=''
-          >
-            <Row className='mb-3'>
-              <Form.Group as={Col} md='6' controlId='validationCustom01'>
-                <Form.Label>Site Name</Form.Label>  
-                
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder=''
-                  name='name'
-                  value={name}
-                  onChange={changeHandler}
-                />
-              </Form.Group>
+        <Modal className='modalx' show={show === EDIT} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Site</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form
+              noValidate
+              validated={validated}
+              onSubmit={handleSubmit}
+              className=''
+            >
+              <Row className='mb-3'>
+                <Form.Group as={Col} md='6' controlId='validationCustom01'>
+                  <Form.Label>Site Name</Form.Label>
 
-              <Form.Group as={Col} md='1' className='icon' controlId='validationCustom02'>
-                <div id = "demo" >
-                <button > 
-                  <img src='./geoicon.png' alt='logo' height='32' onClick={() => getLocation()} title="Get current location [Lat, Long]"/>
-                </button>
-                </div> 
-              
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder=''
+                    name='name'
+                    value={name}
+                    onChange={changeHandler}
+                  />
                 </Form.Group>
-            
-            </Row>
-            <Row className='mb-3'>
-              <Form.Group as={Col} md='4' controlId='validationCustom02'>
-                <Form.Label>Latitude</Form.Label>
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder=''
-                  name='lat'
-                  value={lat}
-                  onChange={changeHandler}
-                />
-              </Form.Group>
+
+                <Form.Group as={Col} md='1' className='icon' controlId='validationCustom02'>
+                  <div id="demo" >
+                    <button >
+                      <img src='./geoicon.png' alt='logo' height='32' onClick={() => getLocation()} title="Get current location [Lat, Long]" />
+                    </button>
+                  </div>
+
+                </Form.Group>
+
+              </Row>
+              <Row className='mb-3'>
                 <Form.Group as={Col} md='4' controlId='validationCustom02'>
-                <Form.Label>Longitude</Form.Label>
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder=''
-                  onChange={changeHandler}
-                  name='long'
-                  value={long}
-                />
-              </Form.Group> 
-            </Row>
+                  <Form.Label>Latitude</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder=''
+                    name='lat'
+                    value={lat}
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md='4' controlId='validationCustom02'>
+                  <Form.Label>Longitude</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder=''
+                    onChange={changeHandler}
+                    name='long'
+                    value={long}
+                  />
+                </Form.Group>
+              </Row>
 
-            <Row className='mb-3'>
-              <Form.Group as={Col} md='6' controlId='validationCustom01'>
-                <Form.Label>Avg. Consumption [ kWh / Yr ]</Form.Label>
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder=''
-                  name='usage_kWh'
-                  value={usage_kWh}
-                  onChange={changeHandler}
-                />
-              </Form.Group>
-              <Form.Group as={Col} md='5' controlId='validationCustom02'>
-                <Form.Label>PV System Size [ kW ]</Form.Label>
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder=''
-                  name='size_kW'
-                  value={size_kW}
-                  onChange={changeHandler}
-                />
-              </Form.Group>         
-            </Row>
-          
-            <Row className='mb-3'>
-            <Form.Group as={Col} md='1' controlId='validationCustom03'>
-            <Form.Label>Get</Form.Label>
-              <button > 
-                  <img src='./geo.png' alt='logo' height='32' onClick={fetchLatLong}/>
-              </button>
-              </Form.Group>
-          
-              <Form.Group as={Col} md='6' controlId='validationCustom03'>
-                <Form.Label>address</Form.Label>
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder=''
-                  name='address'
-                  value={address}
-                  onChange={changeHandler}
-                />
-                <Form.Control.Feedback type='invalid'>
-                  Please provide a valid address.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group as={Col} md='3' controlId='validationCustom04'>
-                <Form.Label>Province</Form.Label>
-                <Form.Control
-                  required
-                  type='text'
-                  placeholder='ON'
-                  name='province'
-                  value={province}
-                  onChange={changeHandler}
-                />
-                
-                <Form.Control.Feedback type='invalid'>
-                  Please provide a valid state.
-                </Form.Control.Feedback>
-              </Form.Group>
-            </Row>
-            <Button type='submit' variant='outline-success'>
-              Submit
-            </Button>
-            <span> </span>
-           </Form>
-        </Modal.Body>
-      </Modal>
+              <Row className='mb-3'>
+                <Form.Group as={Col} md='6' controlId='validationCustom01'>
+                  <Form.Label>Avg. Consumption [ kWh / Yr ]</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder=''
+                    name='usage_kWh'
+                    value={usage_kWh}
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md='5' controlId='validationCustom02'>
+                  <Form.Label>PV System Size [ kW ]</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder=''
+                    name='size_kW'
+                    value={size_kW}
+                    onChange={changeHandler}
+                  />
+                </Form.Group>
+              </Row>
 
-    <div className='container'>
+              <Row className='mb-3'>
+                <Form.Group as={Col} md='1' controlId='validationCustom03'>
+                  <Form.Label>Get</Form.Label>
+                  <button >
+                    <img src='./geo.png' alt='logo' height='32' onClick={fetchLatLong} />
+                  </button>
+                </Form.Group>
 
-      <Modal className='modalx' show={show===DELETE} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete Site</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>     
-          <Form >
+                <Form.Group as={Col} md='6' controlId='validationCustom03'>
+                  <Form.Label>address</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder=''
+                    name='address'
+                    value={address}
+                    onChange={changeHandler}
+                  />
+                  <Form.Control.Feedback type='invalid'>
+                    Please provide a valid address.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group as={Col} md='3' controlId='validationCustom04'>
+                  <Form.Label>Province</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder='ON'
+                    name='province'
+                    value={province}
+                    onChange={changeHandler}
+                  />
 
-          <Form.Label>Are you sure you want to delete <b> {currentSite.name} </b>?</Form.Label>
-              <Form.Group as={Row} md='8' controlId='validationCustom01'>
-                <Button type='button' variant='outline-danger' onClick={()=> delConfirm()} >
-                  Confirm
-                </Button>
-                <p/>
-                <Button type='button' variant='outline-success' onClick={()=>handleClose()}>
-                  Cancel
-                </Button>
-              </Form.Group>         
-           </Form>  
-        </Modal.Body>
-      </Modal>
-    </div>
-             </div>
-   
+                  <Form.Control.Feedback type='invalid'>
+                    Please provide a valid state.
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Row>
+              <Button type='submit' variant='outline-success'>
+                Submit
+              </Button>
+              <span> </span>
+            </Form>
+          </Modal.Body>
+        </Modal>
+
+        <div className='container'>
+
+          <Modal className='modalx' show={show === DELETE} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Site</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form >
+
+                <Form.Label>Are you sure you want to delete <b> {currentSite.name} </b>?</Form.Label>
+                <Form.Group as={Row} md='8' controlId='validationCustom01'>
+                  <Button type='button' variant='outline-danger' onClick={() => delConfirm()} >
+                    Confirm
+                  </Button>
+                  <p />
+                  <Button type='button' variant='outline-success' onClick={() => handleClose()}>
+                    Cancel
+                  </Button>
+                </Form.Group>
+              </Form>
+            </Modal.Body>
+          </Modal>
+        </div>
+      </div>
+
     </>
   );
 }
