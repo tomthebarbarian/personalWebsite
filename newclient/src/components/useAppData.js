@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import './App.scss';
 import { cleanup } from '@testing-library/react/dist';
-import { fetchData, apiCall, logout, login, register } from '../helpers/api';
+import { fetchData } from '../helpers/api';
 
 export default function useAppData(props) {
   //iniitalize app state and set day to Monday
@@ -23,44 +23,43 @@ export default function useAppData(props) {
 
   const [loading, setLoading] = useState(false);
 
-  function apiLogout() {
-    return axios.get("/logout")
-  }
+  const apiLogout = function() {
+    return axios.get("/logout");
+  };
 
-  function apiLogin(user) {
+  const apiLogin = function (user) {
     return axios.post('/login', {
       email: user.email,
       password: user.password
-    })
-  }
+    });
+  };
 
-  function apiRegister(user) {
+  const apiRegister = function (user) {
     return axios.post('/register', {
       name: user.name,
       email: user.email,
       password: user.password
-    })
-
-  }
+    });
+  };
 
 
   useEffect(() => {
     //fetch data with API call
     axios.get("/login")
       .then(res => {
-        console.log('------------get/login------------', res)
+        console.log('------------get/login------------', res);
         if (res.data.code === 200) {
-          setState(prev => ({ ...prev, logged: true, user: res.data.user[0] }))
+          setState(prev => ({ ...prev, logged: true, user: res.data.user[0] }));
 
-          console.log('login check', state.user._id)
+          console.log('login check', state.user._id);
           fetchData(state.user._id)
             .then((data) => {
               setState((prev) => ({
                 ...prev,
                 sites: data.sites,
                 userSites: data.userSites,
-              }))
-            })
+              }));
+            });
         }
       })
       .catch((error) => console.log(`ERROR ${error}`));
