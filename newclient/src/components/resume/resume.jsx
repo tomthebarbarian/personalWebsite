@@ -28,13 +28,15 @@ export const MyResume = (props) => {
           <div className="section__title">Experience</div>
           <div className="section__list">
             <div className="section__list-item">
-              <div className="left">
-                <div className="name">Connex Telecommunications</div>
-                <div className="addr">Richmond Hill, ON</div>
-              </div>
-              <div className="right">
-                <div className="name">Application Developer</div>
-                <div className="desc">Jan. 2022 - Feb. 2023</div>
+              <div>
+                <div className="left">
+                  <div className="name">Connex Telecommunications</div>
+                  <div className="addr">Richmond Hill, ON</div>
+                </div>
+                <div className="right">
+                  <div className="name">Application Developer</div>
+                  <div className="desc">Jan. 2022 - Feb. 2023</div>
+                </div>
               </div>
               <div className="duration">_</div>
               <div className="duration">• Managed 50,000 monthly user requests by developing robust Java and Spring-based application middlelayer, ensuring seamless functionality in the client environment using of Spring RESTful APIs.</div>

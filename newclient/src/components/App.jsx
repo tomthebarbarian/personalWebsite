@@ -17,7 +17,7 @@ import useAppData from './useAppData.js';
 
 import Login from './Login/Login';
 import Register from './Register/Register';
-
+import { MyResume } from './resume/resume';
 import classNames from 'classnames';
 import EditSite from './Edit/EditSite.jsx';
 import AddSite from './Add/AddSite';
@@ -115,7 +115,7 @@ export default function App() {
 
     <>
 
-      <Navbar bg='dark' variant='dark' className={navbarClass}>
+      {/* <Navbar bg='dark' variant='dark' className={navbarClass}>
         <Container>
           <Navbar.Brand ><b>solar<i>Flares</i></b></Navbar.Brand>
 
@@ -125,9 +125,10 @@ export default function App() {
           {!state.user && <Register apiRegister={apiRegister} state={state} setState={setState} />}
           <Login apiLogin={apiLogin} apiLogout={handleLogout} state={state} setState={setState} />
         </Container>
-      </Navbar>
+      </Navbar> */}
 
-      {!state.logged && <Landing register={() => console.log('aljflasfjaljfasljfaslfdj')} />}
+      {/* {!state.logged && <Landing register={() => console.log('aljflasfjaljfasljfaslfdj')} />} */}
+      {!state.logged && <MyResume register={() => console.log('aljflasfjaljfasljfaslfdj')} />}
 
 
       {state.logged &&

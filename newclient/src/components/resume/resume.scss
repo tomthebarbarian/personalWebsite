@@ -16,6 +16,8 @@ body {
   font-size: 14px;
   line-height: 26px;
   padding-bottom: 50px;
+  justify-content: center;
+
 }
 
 .container {
@@ -109,7 +111,7 @@ body {
   }
   
   .right {
-    tex-align: right;
+    text-align: right;
     width: 39%;    
   }
   
