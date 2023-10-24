@@ -1,6 +1,6 @@
 import './App.scss';
 import './custom.scss';
-import Map from './Map';
+import { useScript } from "@uidotdev/usehooks";
 import { useState, useHooks, useEffect } from 'react';
 
 import {
@@ -48,7 +48,11 @@ export default function App() {
   //add condiontal styling
   const navbarClass = classNames('customNav');
 
-
+  const status = useScript('',
+    {
+      removeOnUnmount:false,
+    }
+  )
 
   const [nav, setNav] = useState({ showMap: true });
 

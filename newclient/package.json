@@ -4,14 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node server",
     "start": "vite --host --port 5178",
-    "build": "vite build",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
+    "generate": "vite build --outDir dist/static && npm run build:server && node prerender",
+    "serve": "NODE_ENV=production node server",
+    "debug": "node --inspect-brk server",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@uidotdev/usehooks": "^2.4.1",
     "axios": "^0.24.0",
     "bootstrap": "^5.3.2",
     "chart.js": "^4.4.0",
@@ -24,10 +30,10 @@
     "react-latex-next": "^2.2.0",
     "react-minimal-side-navigation": "^1.9.2",
     "react-router-dom": "^6.17.0",
+    "serve": "^14.2.1",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
-    "vite": "^4.4.5",
     "@storybook/addon-essentials": "^7.5.0",
     "@storybook/addon-interactions": "^7.5.0",
     "@storybook/addon-links": "^7.5.0",
@@ -51,6 +57,7 @@
     "lint": "^0.2.1",
     "prop-types": "^15.8.1",
     "sass": "^1.69.4",
-    "storybook": "^7.5.0"
+    "storybook": "^7.5.0",
+    "vite": "^4.4.5"
   }
 }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import L from "leaflet"
+import { useScript } from "@uidotdev/usehooks";
+
 // Need to find leaflet.css and import into webpack
 // import "node_modules/leaflet/dist/leaflet.css"
 import 'leaflet-css'
@@ -12,6 +14,11 @@ export const Map = (props) => {
 
   const { state, setState } = props
 
+  const status = useScript('',
+    {
+      removeOnUnmount:false,
+    }
+  )
   const [map, setMap] = useState({})
 
   // const mapRef = React.useRef(null);

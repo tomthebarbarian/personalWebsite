@@ -9,7 +9,7 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       // overwrite default .html entry
-      input: '/src/main.jsx',
+      input: '/src/entry-client.jsx',
     },
   },
 });
