@@ -1,0 +1,12 @@
+React
+vite
+react-geocode
+bootstrap
+chart.js
+leaflet
+leaflet-css
+react-bootstrap
+react-dom
+react-geocode
+react-router-dom
+react-minimal-side-navigation
