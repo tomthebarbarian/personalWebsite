@@ -8,11 +8,11 @@
     "start": "vite --host --port 5178",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client --ssrManifest",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.jsx",
     "generate": "vite build --outDir dist/static && npm run build:server && node prerender",
     "serve": "NODE_ENV=production node server",
     "debug": "node --inspect-brk server",
-    "preview": "vite preview",
+    "preview": "vite preview  --host --port 5178",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

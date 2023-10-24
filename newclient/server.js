@@ -58,7 +58,7 @@ export const createServer = async function(
     )
   }
 
-  app.use('*', async (req, res) => {
+  app.use('*', async(req, res) => {
     try {
       const url = req.originalUrl
 
@@ -71,7 +71,7 @@ export const createServer = async function(
       } else {
         template = indexProd
         // @ts-ignore
-        render = (await import('./dist/server/entry-server.jsx')).render
+        render = (await import('./dist/server/entry-server.js')).render
       }
 
       const context = {}

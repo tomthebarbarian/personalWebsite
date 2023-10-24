@@ -119,3 +119,5 @@ export const MyResume = (props) => {
   </div>
 }
 
+export default MyResume
+

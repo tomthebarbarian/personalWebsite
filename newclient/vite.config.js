@@ -4,12 +4,10 @@ import react from '@vitejs/plugin-react-swc';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: './',
+  // base: '/roulette-simulation/',
   build: {
     // generate manifest.json in outDir
     manifest: true,
-    rollupOptions: {
-      // overwrite default .html entry
-      input: '/src/entry-client.jsx',
-    },
   },
 });

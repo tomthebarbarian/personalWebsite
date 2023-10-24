@@ -6,7 +6,6 @@ import axios from 'axios';
 // import dailyAppointments from '../data/appointments';
 
 import './App.scss';
-import { cleanup } from '@testing-library/react/dist';
 import { fetchData } from '../helpers/api';
 
 export default function useAppData(props) {
@@ -66,7 +65,6 @@ export default function useAppData(props) {
 
 
 
-    return cleanup();
   }, [state.logged, state.count]);
 
 
