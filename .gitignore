@@ -7,6 +7,7 @@ setup.md
 .DS_Store
 cookiefile
 .firebaserc
+*.firebase/
 
 server-api/node_modules/
 server-api/views/
