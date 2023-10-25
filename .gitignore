@@ -6,6 +6,7 @@ setup.md
 *.sqlite3
 .DS_Store
 cookiefile
+.firebaserc
 
 server-api/node_modules/
 server-api/views/

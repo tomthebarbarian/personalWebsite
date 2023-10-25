@@ -3,4 +3,4 @@ runtime_config:
     operating_system: "ubuntu22"
     runtime_version: "20"
 env: standard
-entrypoint: npm start
+entrypoint: npm run serve
