@@ -7,6 +7,7 @@ import { useState, useHooks, useEffect } from 'react';
 
 import useAppData from './useAppData.js';
 import { MyResume } from './resume/resume';
+import { MyGeoResume } from './resume/georesume';
 export const App = function () {
   //custom hook separate state logic from app rendering
   const {
@@ -27,6 +28,7 @@ export const App = function () {
   return (
     <>
       {!state.logged && <MyResume register={()=>console.log('aljflasfjaljfasljfaslfdj')} /> }
+      {<MyGeoResume/>}
     </>
   );
 }
