@@ -1,8 +1,8 @@
-import {Landing} from '../components/Landing/Landing'
+import {MyGeoResume} from '../components/resume/georesume'
 import React, { useState } from 'react';
 //👇 This default export determines where your story goes in the story list
 const meta = {
-  component: Landing,
+  component: MyGeoResume,
 };
 
 export default meta;

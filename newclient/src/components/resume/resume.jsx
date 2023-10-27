@@ -12,7 +12,8 @@ export const MyResume = (props) => {
       <div className="header">
         <div className="full-name">
           <span className="first-name">Tom</span>
-          <span className="last-name">Zhang</span>
+          <span className="last-name">Zhang </span>
+          <span className="first-name">Fullstack Dev</span>
         </div>
         <div className="contact-info">
           <span className="email">Email: </span>
