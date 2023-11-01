@@ -12,6 +12,8 @@ import {
 
 import { MyResume } from './resume/resume';
 import { MyGeoResume } from './resume/georesume';
+import {Maps} from './maps/maps';
+
 export const App = function () {
   //custom hook separate state logic from app rendering
  
@@ -75,16 +77,16 @@ export const App = function () {
       {
         <div className='resumechoice'>
           <ButtonGroup horizontal>
-            <Button variant="outline-secondary" onClick={() => console(SHOWPROJ)}>My Web Projects</Button>
+            <Button variant="outline-secondary" onClick={() => navigate(SHOWPROJ)}>My Web Projects</Button>
             <Button variant="outline-info" onClick={() => navigate(SHOWCS)} >FullStack Resume</Button>
             <Button variant="outline-success" onClick={() => navigate(SHOWGEO)}>GIS Resume</Button>
-            <Button variant="outline-secondary" onClick={() => console(SHOWMAP)}>MAPS</Button>
+            <Button variant="outline-secondary" onClick={() => navigate(SHOWMAP)}>MAPS</Button>
           </ButtonGroup>
         </div>
       }
       {nav.showCS && <MyResume />}
       {nav.showGeo && <MyGeoResume />}
-      {nav.showMap && <MyGeoResume />}
+      {nav.showMap && <Maps/>}
       {nav.showProj && <MyGeoResume />}
     </div>
   );
