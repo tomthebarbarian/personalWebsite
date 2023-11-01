@@ -18,6 +18,8 @@ export const App = function () {
 
   const SHOWCS = 0
   const SHOWGEO = 1
+  const SHOWMAP = 2
+  const SHOWPROJ = 3
 
 
   const [nav, setNav] = useState({ showCS: true })
@@ -28,14 +30,36 @@ export const App = function () {
       setNav((prev) => ({
         ...{},
         showCS: true,
-        showGeo: false
+        showGeo: false,
+        showProj: false,
+        showMap: false
       }));
       break;
     case SHOWGEO:
       setNav((prev) => ({
         ...{},
         showCS: false,
-        showGeo: true
+        showGeo: true,
+        showProj: false,
+        showMap: false
+      }));
+      break;
+    case SHOWMAP:
+      setNav((prev) => ({
+        ...{},
+        showCS: false,
+        showGeo: false,
+        showProj: false,
+        showMap: true
+      }));
+      break;
+    case SHOWPROJ:
+      setNav((prev) => ({
+        ...{},
+        showCS: false,
+        showProj: true,
+        showGeo: false,
+        showMap: false
       }));
       break;
     default:
@@ -51,13 +75,17 @@ export const App = function () {
       {
         <div className='resumechoice'>
           <ButtonGroup horizontal>
+            <Button variant="outline-secondary" onClick={() => console(SHOWPROJ)}>My Web Projects</Button>
             <Button variant="outline-info" onClick={() => navigate(SHOWCS)} >FullStack Resume</Button>
             <Button variant="outline-success" onClick={() => navigate(SHOWGEO)}>GIS Resume</Button>
+            <Button variant="outline-secondary" onClick={() => console(SHOWMAP)}>MAPS</Button>
           </ButtonGroup>
         </div>
       }
       {nav.showCS && <MyResume />}
       {nav.showGeo && <MyGeoResume />}
+      {nav.showMap && <MyGeoResume />}
+      {nav.showProj && <MyGeoResume />}
     </div>
   );
 }
