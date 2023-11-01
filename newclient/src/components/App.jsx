@@ -80,7 +80,7 @@ export const App = function () {
             <Button variant="outline-secondary" onClick={() => navigate(SHOWPROJ)}>My Web Projects</Button>
             <Button variant="outline-info" onClick={() => navigate(SHOWCS)} >FullStack Resume</Button>
             <Button variant="outline-success" onClick={() => navigate(SHOWGEO)}>GIS Resume</Button>
-            <Button variant="outline-secondary" onClick={() => navigate(SHOWMAP)}>MAPS</Button>
+            <Button variant="outline-success" onClick={() => navigate(SHOWMAP)}>MAPS</Button>
           </ButtonGroup>
         </div>
       }

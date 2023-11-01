@@ -10,7 +10,7 @@ const SolarPotential = () => {
   return (
     <div>
       <>This 2021 map shows the areas of Canada with photovotaic potential. The redder the better </>
-      <Image className="displaymaps" src="../../../public/bluestored.png" />
+      <Image className="displaymaps" src="/bluestored.png" />
     </div>
       
   )
@@ -20,7 +20,7 @@ const JuryBiking = () => {
   return (
     <div>
       <>This 2023 map describes the difference in accessible area between walking and biking</>
-      <Image className="displaymaps" src="../../../public/WilfridJuryAccessibility.png" />
+      <Image className="displaymaps" src="/WilfridJuryAccessibility.png" />
     </div>
   );
 }
