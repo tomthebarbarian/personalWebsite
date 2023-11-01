@@ -6,6 +6,8 @@ setup.md
 *.sqlite3
 .DS_Store
 cookiefile
+.firebaserc
+*.firebase/
 
 server-api/node_modules/
 server-api/views/
@@ -13,6 +15,11 @@ server-api/bin/*.jsx
 
 client/node_modules/
 *.xjs
+
+
+*.firebaserc
+*.code-workspace
+*vite-plugin-react/
 
 # Logs
 logs

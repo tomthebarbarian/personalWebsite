@@ -9,10 +9,10 @@ html {
 
 body {
   min-height: 100%;  
-  background: #eee;
+  background: #222;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  color: #222;
+  color: #ecdfdf;
   font-size: 14px;
   line-height: 26px;
   padding-bottom: 50px;
@@ -22,12 +22,11 @@ body {
 
 .container {
   max-width: 700px;   
-  background: #fff;
+  background: #3a3636;
   margin: 0px auto 0px; 
-  box-shadow: 1px 1px 2px #DAD7D7;
   border-radius: 3px;  
   padding: 40px;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 .header {
