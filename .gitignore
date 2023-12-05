@@ -16,7 +16,7 @@ server-api/bin/*.jsx
 client/node_modules/
 *.xjs
 
-
+*./firebase/
 *.firebaserc
 *.code-workspace
 *vite-plugin-react/
