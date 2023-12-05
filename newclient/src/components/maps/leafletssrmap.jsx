@@ -8,7 +8,7 @@ import LeafletMapWithClusters from "./LeafletMap.lazy"
 
 export const SSRMaps = () => {
   return (
-    <Container>
+    <Container >
       <LeafletMapWithClusters></LeafletMapWithClusters>
     </Container>
 

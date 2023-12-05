@@ -15,6 +15,18 @@
 .displaymaps{
   width: 60%;
   height: 80%;
-  margin: 2%
-  
+  margin: 2%;
+
+}
+
+.lmaps{
+  height: 60vh;
+  width: 60vw;
+}
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
 }
