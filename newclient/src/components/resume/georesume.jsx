@@ -35,7 +35,7 @@ export const MyGeoResume = (props) => {
                   <div className="addr">Aurora, ON</div>
                 </div>
                 <div className="right">
-                  <div className="name">_GIS ANALYST</div>
+                  <div className="name">GIS ANALYST</div>
                   <div className="desc">Jan. 2019 - Apr. 2019</div>
                 </div>
               </div>
