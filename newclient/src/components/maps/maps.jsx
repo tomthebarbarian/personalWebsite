@@ -5,11 +5,12 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import LeafletMapWithClusters from "./LeafletMap.lazy"
+import SSRMaps from "./leafletssrmap"
 
 const SolarPotential = () => {
   return (
     <div>
-      <>This 2021 map shows the areas of Canada with photovotaic potential. The redder the better </>
+      <>This 2021 map shows the areas of Canada with photovotaic potential. The redder the better</>
       <Image className="displaymaps" src="/bluestored.png" />
     </div>
       
@@ -28,8 +29,12 @@ const JuryBiking = () => {
 export const Maps = () => {
   return (
     <Container>
-      <Row>
+      {/* <Row>
         <SolarPotential></SolarPotential>
+      </Row> */}
+      <Row>
+        <div>This 2021 map shows the areas of Canada with photovotaic potential. The redder the better</div>
+        <SSRMaps/>
       </Row>
       <Row>
         <JuryBiking />

@@ -20,14 +20,18 @@ let position = center
 
 const LeafletMap = () => {
   return (
-    <MapContainer className="lmaps" maxZoom={18} zoom={4} center={position}
+    <MapContainer className="lmaps" maxZoom={18} zoom={3} center={position}
     >
       <TileLayer
+        id='mapbox/streets-v11'
+        tileSize={512}
+        zoomOffset={-1}
+        accessToken='pk.eyJ1IjoidG9tdGhlYmFyYmFyaWFuIiwiYSI6ImNqZmZ4Z2ZvczJhaXgzM3BheHR3Nml2OGYifQ.jq0Tt-4aD5EpAaQ8ihykLw'
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url='https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'
       />
       <ImageOverlay url="./bluestored.png" bounds={pvBounds} opacity={0.8}></ImageOverlay>
-      <Marker position={position}></Marker>
+      {/* <Marker position={position}></Marker> */}
     </MapContainer>
   )
 }

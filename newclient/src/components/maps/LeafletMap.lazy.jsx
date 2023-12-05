@@ -12,7 +12,7 @@ import { MapOptions } from 'leaflet'
 
 export const LeafletMapWithClusters = () => {
   return (
-    <Suspense fallback={<div className="h-[200px]" />}>
+    <Suspense fallback={<div className="h-[200px]" >Map should be here</div>}>
       <LazyLeafletMap >
       </LazyLeafletMap>
     </Suspense>
